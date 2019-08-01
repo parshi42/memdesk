@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Failed suite [FREE CRM Application Test Automation Test Suite]]">
+  <listeners>
+    <listener class-name="com.qa.memdesk.ExtentReportListener.ExtentReporterNG"/>
+  </listeners>
+  <test name="Memdesk Login(failed)(failed)">
+    <classes>
+      <class name="com.qa.memdesk.testcases.HomePageTest">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setUp"/>
+          <include name="verifyMemberId"/>
+        </methods>
+      </class> <!-- com.qa.memdesk.testcases.HomePageTest -->
+    </classes>
+  </test> <!-- Memdesk Login(failed)(failed) -->
+</suite> <!-- Failed suite [Failed suite [FREE CRM Application Test Automation Test Suite]] -->

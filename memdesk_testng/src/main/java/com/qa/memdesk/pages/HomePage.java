@@ -78,7 +78,8 @@ public class HomePage extends TestBase{
 		return getMember.getText();
 	}
 	
-	 public WebElement selectAccount(WebDriver driver) throws NullPointerException{
+
+	 public static WebElement selectAccount(WebDriver driver) throws NullPointerException{
 		 
 		   try{
 

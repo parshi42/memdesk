@@ -6,11 +6,14 @@ import java.io.IOException;
 import java.util.List;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.annotations.DataProvider;
 
 import com.qa.memdesk.base.TestBase;
 
@@ -51,6 +54,49 @@ public class TestUtil extends TestBase {
 		}
 		return data;
 	}
+	
+	
+	private static int findRow(Sheet sheet, String TestcaseName) {
+
+		int rowNum = -1;
+	    for (Row row : sheet) {
+	        for (Cell cell : row) {
+	            if (cell.getCellType() == Cell.CELL_TYPE_STRING) {
+	                if (cell.getRichStringCellValue().getString().trim().equalsIgnoreCase(TestcaseName)) {
+	                	rowNum = row.getRowNum();
+	                	break;
+	                }
+	            }
+	        }
+	    }
+		return rowNum;
+	}
+	
+	public static Object[][] getRowData(String sheetName, String TestcaseName){
+		FileInputStream file = null;
+		try {
+			file = new FileInputStream(TESTDATA_SHEET_PATH);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			book = WorkbookFactory.create(file);
+		} catch (InvalidFormatException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		sheet = book.getSheet(sheetName);
+		int rowNum = findRow(sheet,TestcaseName);
+		if(rowNum != -1){
+		}
+	    Object[][] data = new Object[1][1];
+	    for(int k=1; k < sheet.getRow(rowNum).getLastCellNum();k++){
+	    	data[rowNum][k] = sheet.getRow(rowNum).getCell(k).toString();	    	
+	    }
+		return data;
+	    
+}
 	
 	public static void HandlingWebTable(WebElement webtable, String ele){
 		  

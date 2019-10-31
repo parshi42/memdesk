@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 //import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -42,12 +44,17 @@ public class TestBase {
 	public static void initialization(){
 		String browserName = prop.getProperty("browser");
 		
-		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver","D://memdesk_testng//chromedriver.exe");				
-			driver = new ChromeDriver(); 
+		if(browserName.equals("chrome")){			
+			System.setProperty("webdriver.chrome.driver","D://memdesk_testng//chromedriver.exe");
+			ChromeOptions options = new ChromeOptions();
+			options.addArguments("Incognito");
+			DesiredCapabilities cap = DesiredCapabilities.chrome();
+			cap.setCapability(ChromeOptions.CAPABILITY, options);
+			cap.merge(options);
+			driver = new ChromeDriver(options); 
 		}
 		else if(browserName.equals("FF")){
-			//System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
+			System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
 			driver = new FirefoxDriver(); 
 		}
 		

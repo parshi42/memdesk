@@ -4,11 +4,13 @@ package com.qa.memdesk.testcases;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.qa.memdesk.base.TestBase;
 import com.qa.memdesk.pages.HomePage;
 import com.qa.memdesk.pages.LoginPage;
+import com.qa.memdesk.util.TestUtil;
 
 
 public class HomePageTest extends TestBase{
@@ -27,16 +29,26 @@ public class HomePageTest extends TestBase{
 	}
 
 	@Test(priority=1)
-	public void verifyMemberId(){
-		homePage.SearchMemberBy("Member Id","jfaux_hh_testing");
+	public void verifyMemberId(String memberId, String memberValue){
+		homePage.SearchMemberBy(memberId,memberValue);
 		Assert.assertEquals(homePage.getMemberId(), "jfaux_hh_testing");
 	}
 	
-	@Test(priority=2)
+	@Test(priority=2,dataProvider = "LoginData")
 	public void verifyContactPhone(){
 		homePage.SearchMemberBy("Contact Phone Number","8182873200");
 	}
 	
+	@DataProvider(name="LoginData")
+	public Object[][] loginPagedata(){
+		 Object[][] data = TestUtil.getTestData("");
+	        return data;
+	}
+	@DataProvider(name="TestData")
+	public Object[][] getTestData(){
+		 Object[][] data = TestUtil.getRowData("","");
+	        return data;
+	}
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();

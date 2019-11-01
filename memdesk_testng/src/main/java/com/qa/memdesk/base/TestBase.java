@@ -46,7 +46,6 @@ public class TestBase {
 		
 		if(browserName.equals("chrome")){			
 			System.setProperty("webdriver.chrome.driver","D://memdesk_testng//chromedriver.exe");
-			//Adding Incognito Mode
 			ChromeOptions options = new ChromeOptions();
 			options.addArguments("Incognito");
 			DesiredCapabilities cap = DesiredCapabilities.chrome();

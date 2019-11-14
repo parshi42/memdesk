@@ -90,7 +90,7 @@ public class TestUtil extends TestBase {
 		int rowNum = findRow(sheet,TestcaseName);
 		if(rowNum != -1){
 		}
-	    Object[][] data = new Object[1][1];
+	    Object[][] data = new Object[1][sheet.getRow(rowNum).getLastCellNum()];
 	    for(int k=1; k < sheet.getRow(rowNum).getLastCellNum();k++){
 	    	data[rowNum][k] = sheet.getRow(rowNum).getCell(k).toString();	    	
 	    }

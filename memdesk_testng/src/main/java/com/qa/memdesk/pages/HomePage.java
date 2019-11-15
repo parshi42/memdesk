@@ -14,7 +14,6 @@ import com.qa.memdesk.base.TestBase;
 import com.qa.memdesk.util.TestUtil;
 
 
-//Adding comments for testing
 public class HomePage extends TestBase{
 	
 	@FindBy(xpath = "//*[@id='searchBy']/tbody/tr/td[2]/input")

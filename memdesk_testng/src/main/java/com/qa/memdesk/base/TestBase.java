@@ -47,11 +47,12 @@ public class TestBase {
 		if(browserName.equals("chrome")){			
 			System.setProperty("webdriver.chrome.driver","D://memdesk_testng//chromedriver.exe");
 			ChromeOptions options = new ChromeOptions();
-			options.addArguments("Incognito");
+			options.addArguments("Incognito");			
 			DesiredCapabilities cap = DesiredCapabilities.chrome();
 			cap.setCapability(ChromeOptions.CAPABILITY, options);
-			cap.merge(options);
-			driver = new ChromeDriver(options); 
+			cap.merge(options);			
+			driver = new ChromeDriver(options);			
+			
 		}
 		else if(browserName.equals("FF")){
 			System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
@@ -59,11 +60,11 @@ public class TestBase {
 		}
 		
 		
-		e_driver = new EventFiringWebDriver(driver);
+		/*e_driver = new EventFiringWebDriver(driver);
 		// Now create object of EventListerHandler to register it with EventFiringWebDriver
 		eventListener = new WebEventListener();
 		e_driver.register(eventListener);
-		driver = e_driver;
+		driver = e_driver;*/
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -72,5 +73,8 @@ public class TestBase {
 		driver.get(prop.getProperty("url"));
 		
 	}
+	 public WebDriver getDriver() {
+	        return driver;
+	    }
 	
 }

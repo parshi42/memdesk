@@ -2,17 +2,17 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [FREE CRM Application Test Automation Test Suite]">
   <listeners>
-    <listener class-name="com.qa.memdesk.ExtentReportListener.ExtentReporterNG"/>
+    <listener class-name="com.qa.memdesk.ExtentReportListener.MyListener"/>
   </listeners>
   <test name="Memdesk Login(failed)">
     <classes>
-      <class name="com.qa.memdesk.testcases.HomePageTest">
+      <class name="com.qa.memdesk.testcases.LoginPageTest">
         <methods>
-          <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="verifyMemberId"/>
+          <include name="tearDown"/>
+          <include name="validateLoginPageTitle"/>
         </methods>
-      </class> <!-- com.qa.memdesk.testcases.HomePageTest -->
+      </class> <!-- com.qa.memdesk.testcases.LoginPageTest -->
     </classes>
   </test> <!-- Memdesk Login(failed) -->
 </suite> <!-- Failed suite [FREE CRM Application Test Automation Test Suite] -->

@@ -19,6 +19,9 @@ public class LoginPage extends TestBase {
 	@FindBy(id = "loginPage_loginBtn_label")
 	WebElement LoginBtn;
 	
+	@FindBy(id = "accountInformation_label")
+	WebElement FindBtn;
+	
 	private static WebElement element = null;
 	// Initializing the Page Objects:
 	public LoginPage() {
@@ -28,6 +31,11 @@ public class LoginPage extends TestBase {
 	public String validateLoginPageTitle() {
 		String title=driver.getTitle();
 		return title;
+	}
+	
+	public boolean validateLogin() {
+		boolean status=FindBtn.isDisplayed();
+		return status;
 	}
 	
 	public HomePage login(String un, String pwd){

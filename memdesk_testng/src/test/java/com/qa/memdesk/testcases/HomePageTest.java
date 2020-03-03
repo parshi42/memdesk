@@ -30,6 +30,7 @@ public class HomePageTest extends TestBase{
 
 	@Test(priority=1)
 	public void verifyMemberId(String memberId, String memberValue){
+		System.out.println("Hello");
 		homePage.SearchMemberBy(memberId,memberValue);
 		Assert.assertEquals(homePage.getMemberId(), "jfaux_hh_testing");
 	}

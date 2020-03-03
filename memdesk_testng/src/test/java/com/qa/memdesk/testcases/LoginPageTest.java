@@ -15,20 +15,19 @@ public class LoginPageTest extends TestBase{
 		super();
 	}
 	@BeforeMethod
-	public void setUp(){
+	public void setUp(){		
 		initialization();
-		loginPage = new LoginPage();	
+		loginPage = new LoginPage();		
 	}
 
 	@Test(priority=1)
 	public void validateLoginPageTitle(){
-		
-		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
+		loginPage.login(prop.getProperty("username"), prop.getProperty("password"));		
 		String title = loginPage.validateLoginPageTitle();
-		Assert.assertEquals(title, "Memdesk Application");
+		Assert.assertEquals(title, "Memdesk Aplication");
 	}
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+		//driver.quit();
 	}
 }

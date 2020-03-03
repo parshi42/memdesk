@@ -3,14 +3,13 @@
 <suite name="FREE CRM Application Test Automation Test Suite">
 
 	<listeners>
-		<listener class-name="com.qa.memdesk.ExtentReportListener.ExtentReporterNG" />
+		<listener class-name="com.qa.memdesk.ExtentReportListener.MyListener" />
 	</listeners>
 
 
 	<test name="Memdesk Login">
 		<classes>
-			<class name="com.qa.memdesk.testcases.HomePageTest"></class>
-
+			<class name="com.qa.memdesk.testcases.LoginPageTest"></class>
 		</classes>
 	</test>
 </suite>
